@@ -17,10 +17,14 @@ const express= require("express");
 const cors = require("cors")
 const logger = require("./middleware/logger");
 const welcomeRouter = require("./data/welcome/welcome-router");
+const actionsRouter = require("./data/actions/actions-router");
+const projectRouter = require("./data/project/project-router");
 
 const server= express();
 const port = 4000;
 
 server.use("/", welcomeRouter);
+server.use("/actions", actionsRouter);
+server.use("/project", projectRouter)
 
 
