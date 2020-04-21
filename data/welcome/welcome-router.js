@@ -7,3 +7,5 @@ router.get("/", (req, res) => {
         message: "Welcome to the API",  
       })
 })
+
+module.exports = router;

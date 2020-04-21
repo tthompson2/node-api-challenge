@@ -9,7 +9,7 @@
 
 - [X] How can we partition our application into sub-applications?
 
-We learned middleware about resources and this week. Both of these are used together to create the APIs that we are used to experiencing as users in our modern web applications.
+We learned middleware and router resources and this week. Both of these are used together to create the APIs that we are used to experiencing as users in our modern web applications.
 
 MiddleWare is common functionality that can be accessed through APIs that can be provided to the application, data, and users. It works to help keep the code more discrete and works as a toolbox for developers and users to interact with our software
 
