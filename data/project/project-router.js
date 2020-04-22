@@ -3,6 +3,22 @@ const project = require("../helpers/projectModel.js")
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+
+
+  project.get()
+      .then((users => {
+          res.status(200).json(users)
+      }))
+      .catch(error => {
+          console.log(error);
+          res.status(500).json({
+              message: "Error retrieving the users",
+          })
+      })
+
+})
+
 router.get("/:id", validateProjectId(), (req, res) => {
 
     const newID = req.params.id;
@@ -82,6 +98,8 @@ router.get("/:id/actions/:projectId", validateProjectId(), (req, res) => {
         })
 
 })
+
+//middleware 
 
 function validateProjectId() {
 

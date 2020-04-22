@@ -3,7 +3,7 @@ const actions = require("../helpers/actionModel")
 
 const router = express.Router();
 
-router.get("/:id", validateUser(), (req, res) => {
+router.get("/:id", validatePost(), (req, res) => {
 
     const newID = req.params.id;
 
@@ -17,6 +17,22 @@ router.get("/:id", validateUser(), (req, res) => {
                 message: "Error retrieving the users",
             })
         })
+
+})
+
+router.get("/", (req, res) => {
+
+
+  actions.get()
+      .then((users => {
+          res.status(200).json(users)
+      }))
+      .catch(error => {
+          console.log(error);
+          res.status(500).json({
+              message: "Error retrieving the users",
+          })
+      })
 
 })
 
@@ -92,17 +108,6 @@ function validateUserId() {
         })
     }
   
-  }
-  
-  function validateUser() {
-    return (req, res, next) => {
-      if (!req.body.notes || !req.body.project_id|| !req.body.description) {
-        return res.status(400).json({
-          message: "unable to retrieve user information"
-        })
-      }
-      next()
-    }
   }
   
   function validatePost() {
